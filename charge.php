@@ -26,5 +26,8 @@
     "customer" => $customer->id
   ));
 
-  // print an array
-  print_r($charge);
+  // print an array for testing
+  // print_r($charge);
+
+  // Redirect to Success page
+  header('Location: success.php?tid='.$charge->id.'&product='.$charge->description);
