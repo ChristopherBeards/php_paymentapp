@@ -8,7 +8,8 @@
    */
 class Database {
 	private $host = DB_HOST;
-	private $user = DB_USER;
+  private $user = DB_USER;
+  private $pass = null;
 	private $dbname = DB_NAME;
 	
 	private $dbh;
