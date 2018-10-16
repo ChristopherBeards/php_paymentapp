@@ -2,6 +2,7 @@
   require_once('vendor/autoload.php');
   require_once('config/db.php');
   require_once('lib/pdo_db.php');
+  require_once('models/Customer.php');
 
   \Stripe\Stripe::setApiKey('sk_test_agDidxqwVWUm7qqvFcnyzicd');
 
@@ -30,6 +31,20 @@
 
   // print an array for testing
   // print_r($charge);
+
+  // Instantiate Customer
+  $customer = new Customer();
+
+  // Customer Data
+  $customerData = [
+    'id' => $charge->customer,
+    'first_name' => $first_name,
+    'last_name' => $last_name,
+    'email' => $email
+  ];
+
+  // Add Customer To DB
+  $customer->addCustomer($customerData);
 
   // Redirect to Success page
   header('Location: success.php?tid='.$charge->id.'&product='.$charge->description);
